@@ -1,0 +1,72 @@
+$blue: #0097ff;
+$darker-blue: #008aea;
+$grey: #666666;
+$light-grey: #afafaf;
+$lighter-grey: #fafafa;
+$red: #b00000;
+$orange: #ffa500;
+$green: #407b00;
+
+#privacy_advanced_manager_cover_list, #privacy_advanced_manager_with_connections_list {
+  display:none;
+}
+
+#privacy_advanced_manager {
+  overflow:hidden;
+}
+
+.privacy_advanced_manager-section {
+
+  display:block;
+  width:300px;
+  float:left;
+  margin-right:5px;
+  
+  border: 1px solid #dfdfdf;
+  overflow:hidden;
+  
+  text-align:right;
+  
+  .user-block {
+    padding:10px;
+    border-bottom:1px dotted #dfdfdf;
+    background-color:#fafafa;
+    text-align:left;
+  }
+  
+  h4 {
+    border-bottom:1px solid #dfdfdf;
+    padding:10px;
+    background-color:#efefef;
+    text-align:left;
+  }
+  
+}
+
+input[type=submit] {
+        border:none;
+        background-color:$blue;
+        color:#ffffff;
+        padding:5px;
+        font-weight:bold;
+        border:1px solid $blue;
+        margin:10px;
+      }
+      
+#current_user_specific_settings {
+  margin:40px 0;
+  table {
+    width:100%;
+    
+    th {
+      font-weight:bold;
+      padding:10px 0;  
+    }
+    
+    td {
+      vertical-align:top;
+      padding:10px 0;
+    }
+    
+  }
+}

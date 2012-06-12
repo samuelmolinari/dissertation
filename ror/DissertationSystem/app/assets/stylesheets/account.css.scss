@@ -1,0 +1,85 @@
+$blue: #0097ff;
+$darker-blue: #008aea;
+$light-blue: #a0d8ff;
+$grey: #666666;
+$light-grey: #afafaf;
+$lighter-grey: #fafafa;
+
+#profile-photo {
+  border:4px dashed #dfdfdf;
+  height:200px;
+  width:200px;
+}
+
+#profile-photo-options {
+  margin:5px 0;
+  
+  div {
+    margin:1px 0;
+  }
+  
+}
+
+#detected-faces {
+  overflow:hidden;
+  a {
+    float:left;
+    margin:0 1px 1px 0;
+    padding:0;
+    height:60px;
+    img {
+      padding:0;
+      margin:0;
+    }
+  }
+  
+  a:hover {
+    background-color:transparent;
+  }
+}
+
+#profile-left-column {
+  float:left;
+  width:208px;
+  padding-top:20px;
+}
+
+#profile-right-column {
+  margin-left:300px;
+}
+
+
+table.setting-list {
+  
+  width:100%;
+  
+  td {
+    padding:5px 0;
+    border-bottom:1px solid #efefef;
+  }
+  
+  td:last-child {
+    text-align:right;
+  }
+  
+  td:first-child {
+    font-weight:bold;
+  }
+  
+  div.button {
+    visibility:hidden;
+    margin-right:5px;
+  }
+  
+  tr:hover {
+    
+    td {
+      background-color:$lighter-grey;
+    }
+    
+    div.button {
+      visibility:visible;
+    }
+  }
+  
+}

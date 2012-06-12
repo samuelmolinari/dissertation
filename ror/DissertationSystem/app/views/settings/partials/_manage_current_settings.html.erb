@@ -1,0 +1,23 @@
+<section id="current_user_specific_settings">
+<table>
+  <tr>
+    <th>Hidding from</th>
+    <th>When with</th>
+    <th>Cover with</th>
+  </tr>
+  <% @user.auto_hide_from_users.each do |hfu| %>
+  <tr>
+    <td><%= hfu.hide_from_user.fullname %></td>
+    <td>
+    <% hfu.when_with_users.each do |wwu|  %>
+    <div><%= wwu.user.fullname  %></div>
+    <% end %>
+    <% if hfu.when_with_users.empty? %>
+    Anybody
+    <% end %>
+    </td>
+    <td><%= Face::COVER.key(hfu.cover_type) %></td>
+  </tr>
+  <% end %>
+</table>
+</section>

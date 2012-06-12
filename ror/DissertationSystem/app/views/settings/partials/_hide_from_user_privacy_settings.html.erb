@@ -1,0 +1,82 @@
+<h3>Hide from specific users</h3>
+
+<section id="global_auto_hide_from">
+  
+  <section id="privacy_advanced_manager">
+    
+    <section class="privacy_advanced_manager-section" id="privacy_advanced_manager_connections_list">
+      
+      <h4>1. Select Users You Want To Hide From</h4>
+      
+      <section class="user-list">
+        
+        <%= form_for :connection, :url => { :controller => :settings, :action => :auto_hide_from_user } do |f| %>
+        
+          <% User.find(:all, :conditions => ["id <> :id",{ :id => @user.id }], :order => "fname ASC").each do |user| %>
+        
+            <div class="user-block">
+              <%= f.check_box "user_id_#{user.id}" %> <%= f.label "user_id_#{user.id}", user.fullname %>
+						</div>
+         
+          <% end %>
+        
+        <% end %>
+        
+      </section>
+      
+    </section>
+    
+    <section class="privacy_advanced_manager-section" id="privacy_advanced_manager_with_connections_list">
+      
+      <h4>2. When In a Photo With</h4>
+      
+      <section class="user-list">
+        
+        <%= form_for :with_connection, :url => { :controller => :settings, :action => :auto_hide_from_user } do |f| %>
+        
+          <div class="user-block">
+              <%= f.check_box "user_id_0", { :checked => true } %> <%= f.label "user_id_0", "Anybody" %>
+					</div>
+          
+          <% User.find(:all, :conditions => ["id <> :id",{ :id => @user.id }], :order => "fname ASC").each do |user| %>
+        
+            <div class="user-block">
+              <%= f.check_box "user_id_#{user.id}" %> <%= f.label "user_id_#{user.id}", user.fullname %>
+						</div>
+         
+          <% end %>
+        
+        <% end %>
+        
+      </section>
+      
+    </section>
+    
+    <section class="privacy_advanced_manager-section" id="privacy_advanced_manager_cover_list">
+      
+      <h4>3. Choose a Cover Option</h4>
+      
+      <section class="cover-list">
+        
+        <%= form_for :cover, :url => { :controller => :settings, :action => :auto_hide_from_user } do |f| %>
+        
+        	<% Face::COVER.each do |key,value| %>
+          <% if key != :auto  %>
+        
+            <div class="user-block">
+              <%= f.radio_button :type, value, { :checked => (true if value == 0) } %> <%= f.label :type, key.capitalize, :value => value %>
+						</div>
+         
+          <% end %>
+          <% end %>
+          <%= f.submit "Save Settings" %>
+        
+        <% end %>
+        
+      </section>
+      
+    </section>
+    
+  </section>
+  
+</section>

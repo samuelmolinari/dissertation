@@ -1,0 +1,26 @@
+<% if @unknown_faces_excluding_user.size > 0 %>
+	<h3><%= @unknown_faces_excluding_user.size %> Unknown <%= "People" if @unknown_faces_excluding_user.size > 1 %><%= "Person" if @unknown_faces_excluding_user.size <= 1 %></h3>
+	<section id="list-of-faces-in-photo">
+		<% @unknown_faces_excluding_user.each do |face| %>
+      <% if !face.is_anonymous?(@user) %>
+			<div class="detected-face-side">
+					
+				<table>
+					<tr>
+						<td><%= image_tag(face.access_control_url(60,60)) %></td>
+						<td>
+							<%= form_for :tag,:namespace => "face_#{face.id}", :url => {:controller => :face,:action => :tag_detection, :id => face.id} do |f| %>
+							<%= f.text_field :name, {:class=>"autocomplete_field", :value => ""+(face.pending_recognition.user.full_name if !face.pending_recognition.nil?).to_s, :disabled => !face.pending_recognition.nil? && face.pending_recognition.user_id != @user.id } %>
+							<%= f.hidden_field :user_id, {:value => ""+(face.pending_recognition.user.id if !face.pending_recognition.nil?).to_s } %>
+							<div class="button submit-btn"><%= link_to "Tag" %></div>
+							<% if @is_owner && (face.pending_recognition.nil? || face.pending_recognition.user.id == @user.id) %><div class="red-button"><%= link_to "Remove", {:controller => :face, :action => :remove, :id => face.id} %></div><% end %>
+							<% end %>
+						</td>
+					</tr>
+				</table>
+        
+			</div>
+      <% end %>
+		<% end %>
+	</section>
+<% end %>

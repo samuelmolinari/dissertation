@@ -1,0 +1,281 @@
+$blue: #0097ff;
+$darker-blue: #008aea;
+$grey: #666666;
+$light-grey: #afafaf;
+$lighter-grey: #fafafa;
+$red: #b00000;
+$orange: #ffa500;
+$green: #407b00;
+
+html,body {
+  font-family:Arial, sans-serif;
+  font-size:16px;
+  background-color:#ffffff;
+  color:$grey;
+}
+
+#container {
+  width:960px;
+  padding:40px;
+  margin:0 auto;
+  overflow:hidden;
+  margin-top:10px;
+}
+
+a {
+  color:$blue;
+  display:inline-block
+}
+
+a:hover {
+  background-color:$blue;
+  color:#ffffff;
+  text-decoration:none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  a {
+    text-decoration:none;
+  }
+}
+
+div.button, div.large-button, div.red-button, div.orange-button, div.green-button {
+  display:inline-block;
+  background-color:$blue;
+  padding:0 4px;
+  position:relative;
+  
+  a {
+    display:inline-block;
+    text-decoration:none;
+    padding:3px 4px;
+    color:#ffffff;
+  }
+  
+  a:hover {
+    background-color:transparent;
+  }
+  
+  img {
+    vertical-align:middle;
+  }
+  
+}
+
+div.button:hover, div.large-button:hover {
+  background-color:$darker-blue;
+}
+
+div.red-button {
+  background-color:$red;
+}
+
+div.orange-button {
+  background-color:$orange;
+}
+
+div.green-button {
+  background-color:$green;
+}
+
+div.red-button:hover {
+  background-color:darken($red,5%);
+}
+
+div.orange-button:hover {
+  background-color:darken($orange,2%);
+}
+
+div.green-button:hover {
+  background-color:darken($green,2%);
+}
+
+div.large-button {
+  display:block;
+  a {
+    display:block;
+  }
+
+}
+
+h1 {
+  font-size:36px;
+  color:$blue;
+  padding:20px 0;
+}
+
+h2 {
+  font-size:26px;
+  color:$blue;
+  padding:20px 0;
+}
+
+h3 {
+  font-size:20px;
+  color:$blue;
+  padding:20px 0;
+}
+
+h4 {
+  font-size:15px;
+  font-weight:bold;
+  color:$grey;
+  padding:10px 0;
+}
+
+label {
+  color:$grey;
+}
+
+form {
+  table.form-table {
+    
+    td {
+      padding:5px;
+    }
+    
+    td.submit {
+      text-align:right;
+    }
+    
+    tr.error-field {
+      td {
+        label {
+          color:$red;
+        }
+        input,select {
+          border:1px solid $red;
+        }
+      }
+    }
+    
+    td.error-message {
+      padding-left:10px;
+      color:$red;
+    }
+    
+    input[type=text], input[type=password], textarea, select {
+      font-size:16px;
+      padding:5px;
+      border:1px solid $light-grey;
+      background-color: $lighter-grey;
+    }
+    
+    input[type=text], input[type=password], textarea {
+      width:100%;
+    }
+    
+    textarea {
+      height:100px;
+    }
+    
+    input[type=submit] {
+      background-color:$blue;
+      color:#ffffff;
+      padding:3px 8px;
+      font-weight:bold;
+      border:none;
+      cursor:pointer;
+    }
+    
+    input[type=submit]:hover {
+      background-color:$darker-blue;
+    }
+    
+  }
+}
+
+#photo-manager-button .onupload {
+  display:none;
+}
+
+.photo-container {
+  overflow:hidden;
+}
+
+.photo {
+  display:inline-block;
+  padding:0;
+  margin:2px;
+  float:left;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+.photo-album {
+  overflow:hidden;
+  position:relative;
+  
+  width:110px;
+  height:63px;
+  float:left;
+  
+  .photo {
+    position:absolute;
+    margin:0;
+  }
+  
+  .photo:first-child {
+    z-index:2;
+    top:10px;
+    left:20px;
+    box-shadow: -1px -1px 3px -1px #000000;
+  }
+  
+  .photo:nth-child(2){
+    z-index:1;
+    top:5px;
+    left:15px;
+    box-shadow: -1px -1px 3px -1px #000000;
+    opacity:0.5;
+  }
+  
+  .photo:last-child {
+    z-index:0;
+    top:0px;
+    left:10px;
+    opacity:0.3;
+  }
+  
+}
+
+#autocomplete-container {
+  background-color:#ffffff;
+  position:absolute;
+  z-index:100;
+  border:1px solid #dfdfdf;
+  border-top:none;
+  display:none;
+  div {
+    padding:5px;
+    border-bottom:1px dotted #efefef;
+  }
+  div#selected-name {
+    background-color:#efefef;
+  }
+}
+
+#feedback-container {
+  display:none;
+  text-align:center;
+  position:fixed;
+  top:20px;
+  left:0;
+  z-index:1;
+  width:100%;
+  
+  #feedback-block {
+    display:inline-block;
+    padding:5px;
+    background-color:#F9EDBE;
+    color:darken(#F9EDBE,60%);
+    border:1px solid darken(#F9EDBE,10%);
+    font-size:12px;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.15);
+  }
+  
+}
+
+#feedback-container.has_feedback {
+  display:block;
+}

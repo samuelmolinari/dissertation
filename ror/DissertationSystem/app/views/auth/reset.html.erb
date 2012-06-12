@@ -1,0 +1,19 @@
+<section id="signup">
+	
+	<h1>Reset Password</h1>
+	
+	<%= form_for :user do |f| %>
+		<table class="form-table">
+			<tbody>
+				<tr>
+					<td><%= f.label :email, "Email" %></td>
+					<td><%= f.text_field :email %></td>
+				</tr>
+				<tr>
+					<td colspan="2" class="submit"><%= f.submit "reset" %></td>
+				</tr>
+			</tbody>
+		</table>
+	<% end %>
+
+</section>

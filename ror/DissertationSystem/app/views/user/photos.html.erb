@@ -1,0 +1,5 @@
+<section id="tile-photos">
+	<% @photos.each do |photo| %>
+	  <div class="tile-photo-container"><%= link_to(image_tag(photo.access_control_url(:thumbnail)), { :controller => :user, :uname => params[:uname], :action => :photo, :ref => photo.ref}) %></div>
+	<% end %>
+</div>

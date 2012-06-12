@@ -1,0 +1,25 @@
+<% if controller.controller_name != "auth" || (controller.controller_name == "auth" && controller.action_name != "login") %>
+	<section id="login-block">
+		<%= form_for :login, :url => {:controller => :auth, :action => :authenticate} do |f| %>
+			<table>
+				<tbody>
+					<tr class="labels">
+						<td><%= f.label :identifier, "Email/Username" %></td>
+						<td><%= f.label :password %></td>
+						<td class="no-extra-width"></td>
+					</tr>
+					<tr>
+						<td><%= f.text_field :identifier %></td>
+						<td><%= f.password_field :password %></td>
+						<td class="no-extra-width"><%= f.submit "log in" %></td>
+					</tr>
+					<tr class="sub-options">
+						<td><%= f.check_box :remember %> <%= f.label :remember, "Remember me" %></td>
+						<td><%= link_to "Forgotten your password?", {:controller => :auth, :action => :reset} %></td>
+						<td class="no-extra-width"></td>
+					</tr>
+				</tbody>
+			</table>
+		<% end %>
+	</section>
+<% end %>

@@ -1,0 +1,11 @@
+<section id="login-block">
+  <% if false %><div class="orange-button"><%= link_to image_tag("/images/icons/message.png"), {:controller => :manage} %><%= link_to "0", {:controller => :manage} %></div><% end %>
+  <div id="recognition-notifier" class="orange-button" <%= "style='display:none;'"  if @user.pending_recognitions.empty? %> ><%= link_to image_tag("/images/icons/face.png"), {:controller => :manage, :action => :recognitions} %><%= link_to @user.pending_recognitions.size() , {:controller => :manage, :action => :recognitions}, {:id => "recognition-notifier-counter-value"} %></div>
+  <div class="button" id="photo-manager-button"><%= link_to "0", {:controller => :manage} , {:class => "photo-upload-counter onupload"} %><%= link_to image_tag("/images/loader/photo-uploading.gif"), {:controller => :manage}, {:class => "onupload"} %><%= link_to "photo manager", {:controller => :manage} %></div>
+  |
+  <div class="button"><%= link_to "account", { :controller => :account, :action => :profile } %></div>
+  <div class="button"><%= link_to "privacy settings", { :controller => :settings, :action => :index } %></div>
+  <div class="button"><%= link_to "logout", { :controller => :auth, :action => :logout } %></div>
+</section>
+      
+<section>Welcome, <%= @user.full_name %></section>

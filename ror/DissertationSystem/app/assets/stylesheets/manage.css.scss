@@ -1,0 +1,168 @@
+$blue: #0097ff;
+$darker-blue: #008aea;
+$light-blue: #a0d8ff;
+$grey: #666666;
+$light-grey: #afafaf;
+$lighter-grey: #fafafa;
+
+#photo-manager-left-container {
+  float:left;
+  width:350px;
+  overflow:hidden;
+  position:relative;
+}
+
+#organizer {
+  margin-left:400px;
+}
+
+#drop-area {
+  border:4px dashed #dfdfdf;
+  position:relative;
+  text-align:center;
+  height:150px;
+  
+  #drop-field {
+    width:100%;
+    top:0;
+    height:150px;
+    position:absolute;
+  }
+  
+  #drop-area-status {
+    font-size:13px;
+    top:45%;
+    position:relative;
+    color:#afafaf;
+  }
+  
+}
+
+.right-container {
+  
+}
+
+#upload-status {
+  
+  .upload-in-progress {
+    
+    border-bottom:1px dotted $light-grey;
+    padding-bottom:1px;
+    margin-bottom:1px;
+    overflow:hidden;
+    position:relative;
+    background-color:#ffffff;
+    
+    .thumbnail {
+      float:left;
+      width:100px;
+      height:75px;
+      background-color:$lighter-grey;
+      
+      img {
+        width:100px;
+      }
+    }
+    
+    .detail-block {
+      margin-left:110px;
+      padding-top:5px;
+      background-color:#ffffff;
+      
+      .details {
+        font-size:13px;
+        margin-bottom:10px;
+        .name {
+          font-weight:bold;
+        }
+        .size {
+          font-style:italic;
+        }
+      }
+      
+      .progress-bar {
+        background-color:#efefef;
+        position:absolute;
+        bottom:10px;
+        width:240px;
+        .progress {
+          background-color:$blue;
+          width:1px;
+          color:#ffffff;
+          font-size:13px;
+          padding:3px 0;
+        }
+      }
+      
+    }
+  }
+}
+
+#recognitions-list {
+  .recognition-tag {
+    
+    table {
+      td {
+        vertical-align:top;
+      }
+    }
+    
+    .buttons {
+      margin-top:15px;
+      overflow:hidden;
+      padding:0;
+      margin-bottom:0;
+      height:25px;
+    }
+    
+    display:inline-block;
+    border:1px solid #efefef;
+    padding:5px;
+    margin:1px;
+    a {
+      float:left;
+      background-color:transparent;
+    }
+    
+    a:hover {
+      background-color:transparent;
+    }
+    
+    img {
+      margin-right:5px;
+      float:left;
+    }
+  }
+}
+
+select#select-album {
+  font-size:16px;
+  padding:1px;
+  border:1px solid $light-grey;
+  border-right:1px solid #ffffff;
+  background-color: $lighter-grey;
+  width:325px;
+  margin-bottom:10px;
+}
+
+#organizer-faces-lists {
+  a {
+    padding:0;
+    margin:0;
+    img {
+      padding:0;
+      margin:0;
+      float:left;
+      
+    }
+  }
+  
+  a:hover {
+    background-color:transparent;
+  }
+  .face-thumb {
+    float:left;
+    margin:0 2px 0 2px;
+    overflow:hidden;
+  }
+}

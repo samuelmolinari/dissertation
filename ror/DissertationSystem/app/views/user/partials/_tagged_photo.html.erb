@@ -1,0 +1,17 @@
+<section id="photo-frame">
+	<%= image_tag @image_url %>
+	<% @faces.each do |f| %>
+	<% if !f.is_anonymous?(@user) %>
+	<div class="photo-tag-container" style="<%= f.css(:medium) %>">
+		<div class="photo-tag"></div>
+		<% if !f.pending_recognition.nil? && f.pending_recognition.user.id == @user.id %>
+		<div class="photo-tag-option">
+			<div>Is this you?</div>
+			<div><%= link_to "Yes", {:controller => :face, :action => :confirm_recognition, :id => f.pending_recognition.face_id} %> <%= link_to "no", {:controller => :face, :action => :deny_recognition, :id => f.pending_recognition.face_id} %></div>
+		</div>
+		<% end %>
+	</div>
+	<% end %>
+	<% end %>
+  <section style="text-align:right;padding-top:10px;clear:both;">Uploaded by: <%= link_to(@photo.user.fullname,"/user/#{@photo.user.uname}/") %></section>
+</section>

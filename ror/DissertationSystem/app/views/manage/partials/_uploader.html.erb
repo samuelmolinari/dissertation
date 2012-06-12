@@ -1,0 +1,23 @@
+<section id="uploader">
+	<h2>Photo Uploader</h2>
+	<form method="post" enctype="multipart/form-data"  action="/uploader/upload/">
+		<% if false %>
+		<label for="select-album">In Album </label><select id="select-album" name="photo-album">
+			<option value="">None</option>
+			<% @user.albums.order("name ASC").all.each do |a| %>
+			<option value="<%= a.id %>"><%= a.name %></option>
+			<% end %>
+		</select><div class="button"><%= link_to "+", {:controller => :album, :action => :create}, {:class => "transitional-btn", "data-rewind-path" => "/uploader/uploader","data-transition-container-id" => "photo-manager-left-container", "data-original-content" => "true"} %></div>
+		<% end %>
+		<section id="drop-area">
+	        <input  style="display:none;" type="file" name="imageuploader" id="imageuploader" multiple />    
+			<section id="drop-area-status">Drag &amp; Drop your files here</section>
+			<section id="drop-field"></section>
+		</section>
+	</form> 
+	<section id="upload-status">
+		<% if false %><div class="red-button" style="float:right; margin-top:20px;"><%= link_to "cancel all" %></div><% end %>
+		<h3><span class="photo-upload-counter">0</span> Photos Being Uploaded</h3>
+		<section id="current-upload-list"></section>
+	</section>
+</section>

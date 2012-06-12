@@ -1,0 +1,32 @@
+<% if @is_empty %>
+
+  <h1>You've not been recognised in any uploaded photo.</h1>
+  
+<% else %>
+
+  <h1>You've been found!</h1>
+  
+  <section id="recognitions-list">
+    
+	  <% @recognitions.each do |r| %>
+    
+  	<div class="recognition-tag">
+	  	<table>
+		  	<tr>
+			  	<td><%= link_to image_tag(r.face.access_control_url(60,60)), {:controller => :user, :action => :photo, :ref => r.face.photo.ref} %></td>
+				  <td>
+					  <div>Is this you?</div>
+					  <div class="buttons">
+						  <div class="button"><%= link_to "Yes", {:controller => :face, :action => :confirm_recognition, :id => r.face_id} %></div>
+						  <div class="button"><%= link_to "no", {:controller => :face, :action => :deny_recognition, :id => r.face_id} %></div>
+					  </div>
+				  </td>
+			  </tr>
+		  </table>
+	  </div>
+    
+	  <% end %>
+    
+  </section>
+  
+<% end %>

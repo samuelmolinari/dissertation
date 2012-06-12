@@ -1,0 +1,17 @@
+<section id="recognition">
+  <h2>Improve Your Recognition</h2>
+  <section id="detected-faces"></section>
+	<form method="post" enctype="multipart/form-data"  action="/face/pre_training_upload">
+  	<section id="drop-area">
+      <input  style="display:none;" type="file" name="imageuploader" id="imageuploader" multiple />    
+	    <section id="drop-area-status">Drag &amp; Drop a Photo of You Here</section>
+	    <section id="drop-field"></section>
+	  </section>
+  </form> 
+  <section>
+    <h3>Current Set Used For Your Recognition (<%= @user.faces.size %>)</h3>
+    <% @user.faces.order("id DESC").each do |face| %>
+      <%= image_tag face.access_control_url(30,30) %>
+    <% end %>
+  </section>
+</section>

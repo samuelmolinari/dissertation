@@ -1,0 +1,26 @@
+development:
+  adapter: mysql2
+  pool: 3000
+  database: dissertation_dev
+  username: dissertation
+  password: "1234"
+  host: localhost
+  socket: /var/lib/mysql/mysql.sock
+  
+test:
+  adapter: mysql2
+  pool: 5
+  database: dissertation_test
+  username: dissertation
+  password: "1234"
+  host: localhost
+  socket: /var/lib/mysql/mysql.sock
+  
+production:
+  adapter: mysql2
+  pool: 3000
+  database: dissertation_prod
+  username: dissertation
+  password: "1234"
+  host: localhost
+  socket: /var/lib/mysql/mysql.sock

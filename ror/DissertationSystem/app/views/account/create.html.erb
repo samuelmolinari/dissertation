@@ -1,0 +1,55 @@
+<section id="signup">
+	
+	<h1>Sign Up</h1>
+	
+	<%= form_for :user do |f| %>
+		<table class="form-table">
+			<tbody>
+				<tr <%= 'class=error-field' if @user.errors.any? && !@user.errors.messages[:uname].nil? %>>
+					<td><%= f.label :uname, "Username" %></td>
+					<td><%= f.text_field :uname %></td>
+					<td class="error-message"><%= @user.errors.messages[:uname].first if @user.errors.any? && !@user.errors.messages[:uname].nil? %></td>
+				</tr>
+				<tr <%= 'class=error-field' if @user.errors.any? && !@user.errors.messages[:email].nil? %>>
+					<td><%= f.label :email, "Email" %></td>
+					<td><%= f.text_field :email %></td>
+					<td class="error-message"><%= @user.errors.messages[:email].first if @user.errors.any? && !@user.errors.messages[:email].nil? %></td>
+				</tr>
+				<tr <%= 'class=error-field' if @user.errors.any? && !@user.errors.messages[:email_confirmation].nil? %>>
+					<td><%= f.label :email_confirmation, "Re-type Email" %></td>
+					<td><%= f.text_field :email_confirmation %></td>
+					<td class="error-message"><%= @user.errors.messages[:email_confirmation].first if @user.errors.any? && !@user.errors.messages[:email_confirmation].nil? %></td>
+				</tr>
+				<tr <%= 'class=error-field' if @user.errors.any? && !@user.errors.messages[:password].nil? %>>
+					<td><%= f.label :password, "Password" %></td>
+					<td><%= f.password_field :password %></td>
+					<td class="error-message"><%= @user.errors.messages[:password].first if @user.errors.any? && !@user.errors.messages[:password].nil? %></td>
+				</tr>
+				<tr <%= 'class=error-field' if @user.errors.any? && !@user.errors.messages[:fname].nil? %>>
+					<td><%= f.label :fname, "First Name" %></td>
+					<td><%= f.text_field :fname %></td>
+					<td class="error-message"><%= @user.errors.messages[:fname].first if @user.errors.any? && !@user.errors.messages[:fname].nil? %></td>
+				</tr>
+				<tr <%= 'class=error-field' if @user.errors.any? && !@user.errors.messages[:lname].nil? %>>
+					<td><%= f.label :lname, "Last Name" %></td>
+					<td><%= f.text_field :lname %></td>
+					<td class="error-message"><%= @user.errors.messages[:lname].first if @user.errors.any? && !@user.errors.messages[:lname].nil? %></td>
+				</tr>
+				<tr <%= 'class=error-field' if @user.errors.any? && !@user.errors.messages[:dob].nil? %>>
+					<td><%= f.label :dob, "Date Of Birth" %></td>
+					<td><%= f.date_select :dob, {
+													:start_year => Time.now.year,
+													:end_year => Time.now.year - 107,
+													:order => [:day,:month,:year],
+													:prompt => {:day => "Day:", :month => "Month:", :year => "Year:"}
+												} %></td>
+					<td class="error-message"><%= @user.errors.messages[:dob].first if @user.errors.any? && !@user.errors.messages[:dob].nil? %></td>
+				</tr>
+				<tr>
+					<td colspan="2" class="submit"><%= f.submit "sign up" %></td>
+				</tr>
+			</tbody>
+		</table>
+	<% end %>
+
+</section>

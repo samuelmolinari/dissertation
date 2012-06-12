@@ -1,0 +1,6 @@
+<section id="organizer-photos">
+	<h2><%= link_to "Photos (<span id=\"total-photos-count\">#{@user.photos.all.size.to_s}</span>)</h2>".html_safe, {:controller => :user, :uname => @user.uname, :action => :photos } %>
+	<section id="ognanizer-photos-list" class="photo-container">
+		<%- @user.photos.find(:all,:order => "id DESC", :limit => 24).each do |p| %><%= link_to "",{:controller => :user, :uname => @user.uname, :action => :photo, :ref => p.ref, :size => :medium},{ "data-ref" => p.ref, :class=>"photo", :style=> p.css(:tiny) } %><%- end %>
+	</section>
+</section>

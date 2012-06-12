@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+
+<html>
+
+	<head>
+    
+	  <title>DissertationSystem</title>
+    
+	  <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" %>
+	  <%= javascript_include_tag "application", params[:controller] %>
+	  <%= stylesheet_link_tag    "application", params[:controller], :media => "all" %>
+	  <%= csrf_meta_tags %>
+    
+	</head>
+	
+	<body>
+    
+    <div <%= "class=\"has_feedback\"".html_safe if !flash[:notice].nil? && !flash[:notice].empty? %> id="feedback-container"><div id="feedback-block"><%= flash[:notice] %></div></div>
+  
+	  <section id="login-bar">
+    
+	    <div id="inner-login-bar">
+      
+	      <% if @user.nil? || @user.id.nil? %>
+      
+		      <%= render :partial => "layouts/partials/login_top_bar" %>
+        
+	      <% else %>
+      
+          <%= render :partial => "layouts/partials/menu_top_bar.html" %>
+        
+	      <% end %>
+      
+	    </div>
+      
+	  </section>
+	
+	  <section id="container">
+      
+	    <%= yield %>
+      
+	  </section>
+	
+	</body>
+  
+</html>

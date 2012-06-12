@@ -1,0 +1,28 @@
+<section id="signup">
+	
+	<h1>Log In</h1>
+	
+	<%= form_for :login, :url => {:action => :authenticate} do |f| %>
+		<table class="form-table">
+			<tbody>
+				<tr>
+					<td><%= f.label :identifier, "Email/Username" %></td>
+					<td><%= f.text_field :identifier %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :password, "Password" %></td>
+					<td><%= f.password_field :password %></td>
+				</tr>
+				<tr>
+					<td colspan="2" class="submit"><%= f.check_box :remember %> <%= f.label :remember, "Remember me" %></td>
+				</tr>
+				<tr>
+					<td colspan="2" class="submit"><%= f.submit "log in" %></td>
+				</tr>
+			</tbody>
+		</table>
+		<br/>
+		<div><%= link_to "Sign Up", {:controller => :account, :action => :create} %> | <%= link_to "Forgotten your password?", {:controller => :auth, :action => :reset} %></div>
+	<% end %>
+  
+</section>

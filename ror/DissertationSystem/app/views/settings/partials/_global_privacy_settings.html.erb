@@ -1,0 +1,17 @@
+<h3>Hide from group of people</h3>
+
+<section id="global_auto_hide_from">
+  
+  <p>You will be automatically hidden from the following group of people when you are found in a photo.</p>
+  
+  <%= form_for :global_auto_hide, :url => { :controller => :settings, :action => :global_auto_hide_from } do |f| %>
+  
+    <%= f.label :group, "Hide me automatically from " %><%= f.select :group, User::AUTO_HIDE_FROM.collect { |key,value| [key.to_s.split("_").each{|word| word.capitalize!}.join(" "),value] }, { :selected => @user.auto_hide_from } %>
+    
+    <% collect = Face::COVER.collect { |key,value| [key.to_s.split("_").each{|word| word.capitalize!}.join(" "),value] } %>
+    <% collect.shift %>
+    <%= f.label :cover_type, " using the following cover option " %><%= f.select :cover_type, collect, { :selected => @user.auto_cover_type } %>
+  
+  <% end %>
+  
+</section>

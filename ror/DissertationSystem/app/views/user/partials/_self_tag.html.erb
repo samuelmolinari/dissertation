@@ -1,0 +1,19 @@
+<% if @user_in_photo %>
+	<h3>You</h3>
+	<div id="recognisedBadge">
+	  <table>
+			<tr>
+				<td><%= image_tag(@user_face.first.access_control_url(60,60)) %></td>
+				<td>
+					<div>Hide yourself using the options available below</div>
+					<div>
+						<%= form_for :privacy_setting, :url => {:controller => :face, :action => :update_privacy_setting, :id => @user_face.first.id } do |f| %>
+		  				<%= f.select :cover, Face::COVER.collect {|key,val| [key.capitalize,val] }, {:selected => @user_face.first.cover_type}, {:onchange => "$(this).parent().submit();"} %>
+						<% end %>
+					</div>
+				</td>
+			</tr>
+		</table>
+				
+	</div>
+<% end %>

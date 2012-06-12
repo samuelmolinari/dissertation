@@ -1,0 +1,18 @@
+<% if @known_faces_excluding_user.size > 0 %>
+	<h3><%= @known_faces_excluding_user.size %> Known <%= "People" if @known_faces_excluding_user.size > 1 %><%= "Person" if @known_faces_excluding_user.size <= 1 %></h3>
+	<section id="list-of-faces-in-photo">
+		<% @known_faces_excluding_user.each do |face| %>
+			<div class="detected-face-side">
+				
+				<table>
+					<tr>
+						<td><%= image_tag(face.access_control_url(60,60)) %></td>
+						<td>
+							<h3><%= link_to(face.user.full_name,"/user/#{face.user.uname}/profile") if !face.is_anonymous?(@user) %><%= "Anonymous User" if face.is_anonymous?(@user) %></h3>
+						</td>
+					</tr>
+  			</table>
+			</div>
+		<% end %>
+	</section>
+<% end %>

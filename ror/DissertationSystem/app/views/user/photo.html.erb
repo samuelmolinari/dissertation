@@ -1,0 +1,25 @@
+<div id="autocomplete-container"></div>
+
+<section id="photo-viewer">
+  
+  <%= render :partial => "user/partials/tagged_photo" %>
+  
+	<section id="photo-social-settings">
+    
+		<section id="photo_privacy_setting">
+      
+			<% if @faces.size > 0 %>
+			  
+        <%= render :partial => "user/partials/self_tag" %>
+			
+			  <%= render :partial => "user/partials/known_faces_tags" %>
+      
+        <%= render :partial => "user/partials/unknown_faces_tags" %>
+			
+			<% end %>
+			
+		</section>
+    
+	</section>
+  
+</section>

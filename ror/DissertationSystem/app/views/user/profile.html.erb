@@ -1,0 +1,28 @@
+<section style="overflow:hidden;">
+<% if @viewing_user.id != @user.id  %>
+<% if !@user.follows?(@viewing_user) %>
+<div class="green-button" style="float:right;margin-top:30px;"><%= link_to "Follow", { :controller => :user, :action => :follow, :id => @viewing_user.id } %></div>
+<% else %>
+<div class="red-button" style="float:right;margin-top:30px;"><%= link_to "Unfollow", { :controller => :user, :action => :unfollow, :id => @viewing_user.id } %></div>
+<% end %>
+<% end %>
+<h1 style="float:left;"><%= @viewing_user.fullname %>'s Profile</h1>
+</section>
+
+<section style="float:left; width:405px;">
+  <h2><%= @viewing_user.fullname %>'s Faces</h2>
+  <section id="tile-photos">
+  <% @viewing_user.faces.each do |face| %>
+  <% if !face.photo.nil? && !face.is_anonymous?(@user) %><div class="tile-photo-container" style="height:60px;"><%= link_to(image_tag(face.access_control_url(60,60)), { :controller => :user, :action => :photo, :ref => face.photo.ref}) %><% end %></div>
+  <% end %>
+  </section>
+</section>
+
+<section style="overflow:hidden;">
+  <h2><%= @viewing_user.fullname %>'s Photos</h2>
+  <section id="tile-photos">
+	  <% @viewing_user.photos.each do |photo| %>
+	    <div class="tile-photo-container"><%= link_to(image_tag(photo.access_control_url(:thumbnail)), { :controller => :user, :action => :photo, :ref => photo.ref}) %></div>
+	  <% end %>
+  </div>
+</section>
